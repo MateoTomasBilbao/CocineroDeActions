@@ -42,24 +42,23 @@ jobs:
           draft: false
           prerelease: false
           
-  release_assets:
-    name: Release Assets
-    needs: [create_release_linux, create_release_windows]
-    runs-on: ${{ matrix.config.os }}
-    strategy:
-      matrix:
-        config:
-          - os: ubuntu-latest
-          - os: windows-latest
+  release_assets_linux:
+    name: Release Assets (Linux)
+    needs: create_release_linux
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         
       - name: Set up Go (Linux)
-        if: ${{ matrix.config.os }} == ubuntu-latest
         run: 'echo "This is a test"'
+  release_assets_windows:
+    name: Release Assets (Windows)
+    needs: create_release_windows
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
         
       - name: Set up Go (Windows)
-        if: ${{ matrix.config.os }} == windows-latest
-        shell: powershell
-        run: 'Write-Output "This is a test"'
+        run: '::write-output "This is a test"'
