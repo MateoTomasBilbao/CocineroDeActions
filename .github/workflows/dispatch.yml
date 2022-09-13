@@ -17,8 +17,8 @@ jobs:
           TAG_NAME_LINUX: "1.0.1"
           RELEASE_NAME_LINUX: "HelloWorld-Go-Version-$TAG_NAME_LINUX"
         with:
-          tag_name: "${TAG_NAME_LINUX}"
-          release_name: "${RELEASE_NAME_LINUX}"
+          tag_name: '${TAG_NAME_LINUX}'
+          release_name: '${RELEASE_NAME_LINUX}'
           body: |
             Changes in this release
             - Compiled Go file created in Ubuntu
