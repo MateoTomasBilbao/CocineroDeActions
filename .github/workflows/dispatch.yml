@@ -14,8 +14,8 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: "1.1.3"
-          RELEASE_NAME: "HelloWorld-Go-Version-$TAG_NAME"
+          TAG_NAME: 1.1.4
+          RELEASE_NAME: HelloWorld-Go-Version-$TAG_NAME
         with:
           tag_name: "$TAG_NAME"
           release_name: "$RELEASE_NAME"
@@ -35,8 +35,8 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: "1.2.3"
-          RELEASE_NAME: "HelloWorld-Go-Version-$TAG_NAME"
+          TAG_NAME: 1.2.4
+          RELEASE_NAME: HelloWorld-Go-Version-$TAG_NAME
         with:
           tag_name: "$TAG_NAME"
           release_name: "$RELEASE_NAME"
