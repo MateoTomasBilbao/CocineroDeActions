@@ -14,7 +14,7 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME_LINUX: 1.1.5
+          TAG_NAME_LINUX: 1.1.6
           RELEASE_NAME_LINUX: "HelloWorld-Go-Version-$TAG_NAME_LINUX"
         with:
           tag_name: $TAG_NAME_LINUX
@@ -35,7 +35,7 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME_WIDNOWS: 1.2.5
+          TAG_NAME_WIDNOWS: 1.2.6
           RELEASE_NAME_WINDOWS: "HelloWorld-Go-Version-$TAG_NAME_WINDOWS"
         with:
           tag_name: $TAG_NAME_WINDOWS
@@ -52,15 +52,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        config:
+          - os: ubuntu-latest
+          - os: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         
       - name: Set up Go (Linux)
-        if: ${{ matrix.os }} == ubuntu-latest
+        if: ${{ matrix.config.os }} == ubuntu-latest
         run: 'echo "This is a test"'
         
       - name: Set up Go (Windows)
-        if: ${{ matrix.os }} == windows-latest
+        if: ${{ matrix.config.os }} == windows-latest
+        shell: powershell
         run: 'Write-Output "This is a test"'
