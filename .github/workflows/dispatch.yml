@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Create Release
         id: create_release
-        uses: actions/create-releae@v1
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_NAME: 1.0.0
