@@ -14,7 +14,7 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME_LINUX: "1.0.0"
+          TAG_NAME_LINUX: "1.0.1"
           RELEASE_NAME_LINUX: "HelloWorld-Go-Version-$TAG_NAME_LINUX"
         with:
           tag_name: "${TAG_NAME_LINUX}"
@@ -35,7 +35,7 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME_WIDNOWS: "1.1.0"
+          TAG_NAME_WIDNOWS: "1.1.1"
           RELEASE_NAME_WINDOWS: "HelloWorld-Go-Version-${TAG_NAME_WINDOWS}"
         with:
           tag_name: "${TAG_NAME_WINDOWS}"
