@@ -3,34 +3,52 @@ on:
   workflow_dispatch:
   
 jobs:
-  create_release:
-    name: Create Release
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
+  create_release_linux:
+    name: Create Release (Linux)
+    runs-on: ubuntu-latest
     outputs:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      upload_url: ${{ steps.create_release_linux.outputs.upload_url }}
     steps:
       - name: Create Release
-        id: create_release
+        id: create_release_linux
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: 1.0.0
+          TAG_NAME: 1.1.0
           RELEASE_NAME: HelloWorld-Go-Version
         with:
           tag_name: $TAG_NAME
           release_name: $RELEASE_NAME
           body: |
             Changes in this release
-            - Compiled Go file created
+            - Compiled Go file created in Ubuntu
+          draft: false
+          prerelease: false
+  create_release_windows:
+      name: Create Release (Windows)
+      runs-on: ubuntu-latest
+      outputs:
+        upload_url: ${{ steps.create_release_windows.outputs.upload_url }}
+      steps:
+      - name: Create Release
+        id: create_release_windows
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: 1.1.0
+          RELEASE_NAME: HelloWorld-Go-Version
+        with:
+          tag_name: $TAG_NAME
+          release_name: $RELEASE_NAME
+          body: |
+            Changes in this release
+            - Compiled Go file created in Windows
           draft: false
           prerelease: false
           
   release_assets:
     name: Release Assets
-    needs: create_release
+    needs: [create_release_linux, create_release_windows]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
