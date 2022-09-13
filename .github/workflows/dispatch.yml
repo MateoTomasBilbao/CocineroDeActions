@@ -17,11 +17,11 @@ jobs:
         uses: actions/create-releae@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: '1.0.0'
-          RELEASE_NAME: 'HelloWorld: Go Version'
+          TAG_NAME: 1.0.0
+          RELEASE_NAME: HelloWorld-Go-Version
         with:
-          tag_name: ${{ TAG_NAME }}
-          release_name: ${{ RELEASE_NAME }}
+          tag_name: $TAG_NAME
+          release_name: $RELEASE_NAME
           body: |
             Changes in this release
             - Compiled Go file created
