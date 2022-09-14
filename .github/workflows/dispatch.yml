@@ -15,7 +15,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: '1.0.7'
+          tag_name: '1.0.8'
           release_name: "HelloWorld Go Version 1.0.7"
           body: |
             Changes in this release
@@ -34,7 +34,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: '1.1.7'
+          tag_name: '1.1.8'
           release_name: "HelloWorld Go Version 1.1.7"
           body: |
             Changes in this release
@@ -98,7 +98,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.create_release_linux.outputs.upload_url }}
+          upload_url: ${{ needs.create_release_windows.outputs.upload_url }}
           asset_name: HelloWorld.exe
           asset_path: ./helloworld
           asset_content_type: application/octet-stream
