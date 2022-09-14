@@ -14,11 +14,10 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME_LINUX: '1.0.5'
-          RELEASE_NAME_LINUX: "HelloWorld Go Version $TAG_NAME_LINUX"
+          TAG_NAME_LINUX: 1.0.9
         with:
-          tag_name: "${TAG_NAME_LINUX}"
-          release_name: "${RELEASE_NAME_LINUX}"
+          tag_name: ${TAG_NAME_LINUX}
+          release_name: "HelloWorld Go Version $TAG_NAME_LINUX"
           body: |
             Changes in this release
             - Compiled Go file created in Ubuntu
@@ -35,11 +34,10 @@ jobs:
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME_WINDOWS: '1.1.5'
-          RELEASE_NAME_WINDOWS: "HelloWorld Go Version $TAG_NAME_WINDOWS"
+          TAG_NAME_WINDOWS: 1.1.9
         with:
-          tag_name: "${TAG_NAME_WINDOWS}"
-          release_name: "${RELEASE_NAME_WINDOWS}"
+          tag_name: $TAG_NAME_WINDOWS
+          release_name: "HelloWorld Go Version $TAG_NAME_WINDOWS"
           body: |
             Changes in this release
             - Compiled Go file created in Windows
