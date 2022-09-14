@@ -16,8 +16,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_NAME_LINUX: '1.0.0.L'
         with:
-          tag_name: ${{ TAG_NAME_LINUX }}
-          release_name: "HelloWorld Go Linux Version ${{ TAG_NAME_LINUX }}"
+          tag_name: '$TAG_NAME_LINUX'
+          release_name: 'HelloWorld Go Linux Version $TAG_NAME_LINUX'
           body: |
             Changes in this release
             - Compiled Go file created in Ubuntu
